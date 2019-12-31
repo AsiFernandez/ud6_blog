@@ -16,14 +16,14 @@
         <td>{{$p->title}}</td>
         <td>{{date("j/m/Y H:i:s", strtotime($p->published_at))}}</td>
         <td>
-        <a title="Ver" href="{{route('post.index', $p->id)}}">Ver Post</a>
+        <a title="Ver" href="{{route('post.show', $p->id)}}">Ver Post</a>
         </td>
         <td>
           
           <a title="Editar" href="{{route('post.edit', $p->id)}}">Editar Post</a>
         </td>
         <td>
-        <form style="display:inline" action="" method="POST">
+        
         <form style="display:inline" action="{{route('post.destroy',$p->id)}}" method="POST">
            {{ method_field('DELETE') }}
            {{ csrf_field() }}
