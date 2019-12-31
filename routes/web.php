@@ -24,10 +24,12 @@ Route::get('/register', function () {
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/editor', 'EditorController@index')->name('editor');
+Route::get('/admin', 'AdminController@index')->name('admin');
+
 
 Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::resource('post', 'postController')->only(['index','create','store']);
+Route::resource('/post', 'postController')->only(['index','create','store','show','edit','update','destroy']);
 
-/* Ruta de a cada funcion del controlador de recursos*/
 

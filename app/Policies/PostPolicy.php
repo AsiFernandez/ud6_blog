@@ -1,15 +1,11 @@
 <?php
-
 namespace App\Policies;
-
 use App\Post;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-
 class PostPolicy
 {
     use HandlesAuthorization;
-
     /**
      * Determine whether the user can view any posts.
      *
@@ -20,7 +16,6 @@ class PostPolicy
     {
         //
     }
-
     /**
      * Determine whether the user can view the post.
      *
@@ -30,9 +25,8 @@ class PostPolicy
      */
     public function view(User $user, Post $post)
     {
-        //
+        return $user->id === $post->user_id;
     }
-
     /**
      * Determine whether the user can create posts.
      *
@@ -43,7 +37,6 @@ class PostPolicy
     {
         //
     }
-
     /**
      * Determine whether the user can update the post.
      *
@@ -55,7 +48,6 @@ class PostPolicy
     {
         //
     }
-
     /**
      * Determine whether the user can delete the post.
      *
@@ -67,7 +59,6 @@ class PostPolicy
     {
         //
     }
-
     /**
      * Determine whether the user can restore the post.
      *
@@ -79,7 +70,6 @@ class PostPolicy
     {
         //
     }
-
     /**
      * Determine whether the user can permanently delete the post.
      *

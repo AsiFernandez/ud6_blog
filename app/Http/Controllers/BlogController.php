@@ -11,8 +11,10 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $post=Post::all();
-        return view('posts.index')->with('posts', $post);
-
+        $posts = Post::orderBy('published_at', 'desc')->get();
+        var_dump($posts);
+        return view('welcome')->with(['posts' => $posts]);
     }
+
 }
+?>
